@@ -29,10 +29,7 @@ class _AddProductPageState extends State<AddProductPage> {
     });
   }
 
-
-
-
-void _showDialog(BuildContext context, String message) {
+  void _showDialog(BuildContext context, String message) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -84,11 +81,6 @@ void _showDialog(BuildContext context, String message) {
       ),
     );
   }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -152,90 +144,92 @@ void _showDialog(BuildContext context, String message) {
               style: const TextStyle(color: Colors.grey),
             ),
             const SizedBox(height: 16.0),
-            const Text('Product Price',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-        TextFormField(
+            const Text('Product price',
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+            TextFormField(
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(r'^[0-9]+$')),
                 _CurrencySymbolFormatter(),
               ],
-              decoration:  InputDecoration( errorText: _showError ? 'Enter number' : null,
-             ),
-              style:  TextStyle(color: _showError ? Colors.red : Colors.grey,
-             ),
-            
-         // style: const TextStyle(color: Colors.grey),
-        ),
-        const SizedBox(height: 16.0),
-        const Text('Product Description',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-        TextFormField(
-          maxLines: 3,
-          decoration: const InputDecoration(),
-          style: const TextStyle(color: Colors.grey),
-        ),
-        const SizedBox(height: 30.0),
-        const Text('Product Size',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-        Row(
-          children: [
-            _buildRecommendation('small'),
-            _buildRecommendation('medium'),
-            _buildRecommendation('large'),
-          ],
-          
-        ),
-        DropdownButtonFormField<String>(
-          items: [
-            'S',
-            'M',
-            'L',
-            'XL',
-            'XXL',
-            'XXXL',
-          ].map((size) {
-            return DropdownMenuItem<String>(
-              value: size,
-              child: Row(
-                children: [
-                  Text(size),
-                ],
+              decoration: InputDecoration(
+                errorText: _showError ? 'Enter number' : null,
               ),
-            );
-          }).toList(),
-          onChanged: (value) {
-            // Handle size selection
-          },
-          decoration: const InputDecoration(
-            hintText: "Select Size",
-          ),
-        ),
-        const SizedBox(height: 80.0),
-        ElevatedButton(
-          onPressed: () {
-        _showDialog(context, 'The product is added successfully');
-      },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 99, 82,
-                222), // perfect ila aan Color.fromARGB(255, 105, 86, 215),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(40.0),
+              style: TextStyle(
+                color: _showError ? Colors.red : Colors.grey,
+              ),
+
+              // style: const TextStyle(color: Colors.grey),
             ),
-          ),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: Center(
-              child: Text('ADD PRODUCT',
-                  style: TextStyle(color: Colors.white)),
+            const SizedBox(height: 16.0),
+            const Text('Product description',
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+            TextFormField(
+              maxLines: 3,
+              decoration: const InputDecoration(),
+              style: const TextStyle(color: Colors.grey),
             ),
-          ),
+            const SizedBox(height: 30.0),
+            const Text('Product Size',
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+            Row(
+              children: [
+                _buildRecommendation('small'),
+                _buildRecommendation('medium'),
+                _buildRecommendation('large'),
+              ],
+            ),
+            DropdownButtonFormField<String>(
+              items: [
+                'S',
+                'M',
+                'L',
+                'XL',
+                'XXL',
+                'XXXL',
+              ].map((size) {
+                return DropdownMenuItem<String>(
+                  value: size,
+                  child: Row(
+                    children: [
+                      Text(size),
+                    ],
+                  ),
+                );
+              }).toList(),
+              onChanged: (value) {
+                // Handle size selection
+              },
+              decoration: const InputDecoration(
+                hintText: "Select Size",
+              ),
+            ),
+            const SizedBox(height: 80.0),
+            ElevatedButton(
+              onPressed: () {
+                _showDialog(context, 'The product is added successfully');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 99, 82,
+                    222), // perfect ila aan Color.fromARGB(255, 105, 86, 215),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40.0),
+                ),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                child: Center(
+                  child: Text('ADD PRODUCT',
+                      style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
-  ),
-  );
+      ),
+    );
+  }
 }
-}
+
 class _CurrencySymbolFormatter extends TextInputFormatter {
   static const _allowedSymbols = ['\$', '€', 'birr', 'Birr', 'Br', 'br'];
 
@@ -260,4 +254,3 @@ class _CurrencySymbolFormatter extends TextInputFormatter {
     return '';
   }
 }
-

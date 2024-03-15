@@ -45,7 +45,7 @@ class EditProductPage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 38, left: 10),
             child: Text(
-              'Edit Product',
+              'Edit product',
               style: TextStyle(
                 fontFamily: 'Arial',
                 fontSize: 30.0,
@@ -98,7 +98,7 @@ class EditProductPage extends StatelessWidget {
               style: const TextStyle(color: Colors.grey),
             ),
             const SizedBox(height: 16.0),
-            const Text('Product Price',
+            const Text('Product price',
             style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
         TextFormField(
           decoration: const InputDecoration(
@@ -108,7 +108,7 @@ class EditProductPage extends StatelessWidget {
           style: const TextStyle(color: Colors.grey),
         ),
         const SizedBox(height: 16.0),
-        const Text('Product Description',
+        const Text('Product description',
             style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
         TextFormField(
           maxLines: 3,
